@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\User;
+use App\Models\Product;
+use App\Models\ProductCategory;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -13,11 +14,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        // Product Category
+        ProductCategory::create(['name' => 'Luxury']);
+        ProductCategory::create(['name' => 'Sport']);
+        ProductCategory::create(['name' => 'Hiking']);
+        ProductCategory::create(['name' => 'Basketball']);
+        ProductCategory::create(['name' => 'Tennis']);
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        // Product
+        Product::create([
+            'name' => 'Nike Air Jourdan',
+            'price' => 60000000,    
+            'description' => 'Lorem ipsum dolor sit amet.',
+            'tags' => 'waterproof',
+            'category_id' => 1
         ]);
     }
 }
